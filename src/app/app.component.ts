@@ -12,6 +12,7 @@ import { Observable } from "rxjs";
 
 // import { COURSES } from "../db-data";
 import { Course } from "./model/course";
+import { CoursesService } from "./services/courses.service";
 // import { CourseCardComponent } from "./course-card/course-card.component";
 // import { HighlightedDirective } from "./directives/highlighted.directive";
 
@@ -23,12 +24,9 @@ import { Course } from "./model/course";
 export class AppComponent implements OnInit {
   courses$: Observable<Course[]>;
 
-  constructor(private http: HttpClient) {}
+  constructor(private coursesService: CoursesService) {}
 
   ngOnInit() {
-    // HttpParams has immutability based api - to change use .set() method
-    const params = new HttpParams().set("page", "1").set("pageSize", "10");
-
-    this.courses$ = this.http.get<Course[]>("/api/courses", { params });
+    this.courses$ = this.coursesService.loadCourses();
   }
 }
