@@ -9,14 +9,6 @@ import { CoursesService } from "./services/courses.service";
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
-  providers: [
-    {
-      provide: CONFIG_TOKEN,
-      // useFactory: () => APP_CONFIG,
-      // if factory simply returns value, we may use instead:
-      useValue: APP_CONFIG,
-    },
-  ],
 })
 export class AppComponent implements OnInit {
   courses$: Observable<Course[]>;
