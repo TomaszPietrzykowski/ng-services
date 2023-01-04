@@ -4,9 +4,7 @@ import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 
 import { Course } from "../model/course";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class CoursesService {
   constructor(private http: HttpClient) {}
 
