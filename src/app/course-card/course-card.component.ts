@@ -19,12 +19,7 @@ export class CourseCardComponent implements OnInit {
 
   constructor(private coursesService: CoursesService) {}
 
-  ngOnInit(): void {
-    console.log(
-      "coursesService from cours-card component: ",
-      this.coursesService
-    );
-  }
+  ngOnInit(): void {}
 
   onSaveClicked(description: string) {
     this.courseEmitter.emit({ ...this.course, description });
